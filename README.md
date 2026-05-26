@@ -1,6 +1,6 @@
 # Jornada · Ensaios InnovaPeople
 
-Blog editorial da InnovaPeople — ensaios longos sobre design organizacional, engenharia de contexto, retenção de conhecimento e a arquitetura da liderança na Era dos Participantes.
+Blog editorial da InnovaPeople — ensaios longos sobre design organizacional, engenharia de contexto, retenção de conhecimento e a arquitetura da decisão distribuída.
 
 Produção: https://jornada.innovapeople.com.br
 
