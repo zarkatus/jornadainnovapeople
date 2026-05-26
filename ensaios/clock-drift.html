@@ -47,7 +47,13 @@ header.top .back{font-size:13px;color:var(--muted);text-decoration:none;letter-s
 header.top .back:hover{color:var(--violet)}
 
 /* ARTIGO */
-article{padding:64px 0 80px 0;flex:1}
+article{padding:0 0 80px 0;flex:1}
+.art-hero{position:relative;width:100%;height:54vh;min-height:380px;overflow:hidden;margin-bottom:48px}
+.art-hero img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(0.55) contrast(1.05) brightness(0.78);animation:slowZoom 30s ease-in-out infinite alternate}
+@keyframes slowZoom{0%{transform:scale(1)}100%{transform:scale(1.07)}}
+.art-hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,32,.35) 0%,rgba(250,247,241,.05) 60%,rgba(250,247,241,1) 100%);z-index:1}
+.art-hero-caption{position:absolute;bottom:80px;left:0;right:0;text-align:center;z-index:2;color:#fff;padding:0 28px}
+.art-hero-caption .eyebrow-photo{display:inline-block;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#E8D49C;font-weight:600;padding:6px 14px;border:1px solid rgba(232,212,156,.35);border-radius:20px;background:rgba(0,0,0,.18)}
 .art-head{margin-bottom:48px;border-bottom:1px solid var(--rule);padding-bottom:36px}
 .art-meta{display:flex;gap:14px;align-items:center;margin-bottom:18px;font-size:11.5px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:500;font-family:var(--sans)}
 .art-meta .num{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:15px;letter-spacing:-.01em;text-transform:none;font-weight:500}
@@ -131,6 +137,10 @@ footer .copy .hier a{color:var(--violet-light);text-decoration:none}
 </header>
 
 <article>
+  <div class="art-hero">
+    <img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=2000&h=1100&fit=crop&q=85&auto=format" alt="Relógio antigo sobre mesa de mármore" loading="eager">
+    <div class="art-hero-caption"><span class="eyebrow-photo">Ensaio N.º 01 · Clock Drift</span></div>
+  </div>
   <div class="wrap">
 
     <div class="art-head">
