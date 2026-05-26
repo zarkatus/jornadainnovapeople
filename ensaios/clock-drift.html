@@ -94,18 +94,26 @@ footer .nav-foot a:hover{color:var(--gold)}
 footer .copy{max-width:1080px;margin:0 auto;padding:16px 28px 0 28px;border-top:1px solid rgba(255,255,255,.10);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:11px;color:rgba(255,255,255,.45);letter-spacing:.05em}
 footer .copy .hier{font-family:var(--serif);font-style:italic}
 footer .copy .hier a{color:var(--violet-light);text-decoration:none}
+/* LGPD barra */
+.lgpd-bar{position:fixed;bottom:0;left:0;right:0;z-index:80;background:rgba(20,16,15,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:rgba(255,255,255,.86);padding:8px 16px;display:none;align-items:center;justify-content:center;gap:14px;font-size:12px;letter-spacing:.02em;border-top:1px solid rgba(255,255,255,.08);font-family:var(--sans)}
+.lgpd-bar.show{display:flex;animation:lgpdFade .4s ease}
+@keyframes lgpdFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.lgpd-bar a{color:var(--gold);text-decoration:underline;text-decoration-color:rgba(196,163,90,.4);text-underline-offset:2px}
+.lgpd-bar button{background:transparent;border:none;color:rgba(255,255,255,.55);cursor:pointer;font-size:18px;padding:0 6px;line-height:1;transition:color .2s;margin-left:4px;font-family:inherit}
+.lgpd-bar button:hover{color:#fff}
 </style>
 </head>
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="ip-logo" viewBox="0 0 100 100">
-      <g fill="none" stroke="currentColor" stroke-linecap="round">
-        <g stroke-width="2.2" opacity="0.85">
-          <line x1="50" y1="6" x2="50" y2="28"/><line x1="22" y1="18" x2="38" y2="36"/><line x1="78" y1="18" x2="62" y2="36"/><line x1="6" y1="50" x2="32" y2="50"/><line x1="94" y1="50" x2="68" y2="50"/><line x1="16" y1="32" x2="32" y2="44"/><line x1="84" y1="32" x2="68" y2="44"/>
-        </g>
-        <circle cx="50" cy="50" r="14" stroke-width="3.4"/><line x1="50" y1="38" x2="50" y2="86" stroke-width="3.4"/><line x1="24" y1="86" x2="76" y2="86" stroke-width="3.4"/>
+    <symbol id="ip-logo" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="60" cy="56" r="44" stroke-width="0.5" opacity="0.15"/>
+        <circle cx="60" cy="56" r="34" stroke-width="0.6" opacity="0.25"/>
+        <ellipse cx="60" cy="56" rx="15" ry="20" stroke-width="2.2"/>
+        <line x1="60" y1="24" x2="60" y2="92" stroke-width="2.2"/>
+        <path d="M 32 102 Q 60 108 88 102" stroke-width="1.6" opacity="0.5"/>
       </g>
     </symbol>
   </defs>
@@ -246,6 +254,16 @@ footer .copy .hier a{color:var(--violet-light);text-decoration:none}
     <div>© 2026 InnovaPeople · Itajaí · Santa Catarina</div>
   </div>
 </footer>
+
+<div id="lgpd-bar" class="lgpd-bar" role="status">
+  <span>Tratamos apenas dados estritamente necessários. <a href="https://innovapeople.com.br/privacidade">Política de Privacidade</a>.</span>
+  <button type="button" aria-label="Fechar" onclick="lgpdClose()">×</button>
+</div>
+
+<script>
+function lgpdClose(){try{localStorage.setItem('ip_lgpd_consent','1');}catch(_){}document.getElementById('lgpd-bar').classList.remove('show');}
+(function(){try{if(!localStorage.getItem('ip_lgpd_consent')){setTimeout(()=>document.getElementById('lgpd-bar').classList.add('show'),900);}}catch(_){}})();
+</script>
 
 </body>
 </html>

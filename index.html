@@ -53,6 +53,18 @@ header.top .nav-links a:hover{color:var(--violet)}
 
 /* HERO */
 .hero{padding:90px 0 70px 0;background:radial-gradient(50% 70% at 30% 30%,rgba(196,163,90,.08) 0%,transparent 60%),radial-gradient(50% 70% at 80% 70%,rgba(91,58,122,.08) 0%,transparent 60%),var(--paper)}
+.hero-inner{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center}
+@media (max-width:880px){.hero-inner{grid-template-columns:1fr;gap:36px}}
+.hero-illust-side{position:relative;color:var(--violet);opacity:.85}
+.hero-illust-side svg{width:100%;max-width:320px;margin:0 auto;height:auto;display:block;filter:drop-shadow(0 10px 24px rgba(63,39,86,.08));animation:gentleFloat 9s ease-in-out infinite}
+@keyframes gentleFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+/* LGPD barra */
+.lgpd-bar{position:fixed;bottom:0;left:0;right:0;z-index:80;background:rgba(20,16,15,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:rgba(255,255,255,.86);padding:8px 16px;display:none;align-items:center;justify-content:center;gap:14px;font-size:12px;letter-spacing:.02em;border-top:1px solid rgba(255,255,255,.08);font-family:var(--sans)}
+.lgpd-bar.show{display:flex;animation:lgpdFade .4s ease}
+@keyframes lgpdFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.lgpd-bar a{color:var(--gold);text-decoration:underline;text-decoration-color:rgba(196,163,90,.4);text-underline-offset:2px}
+.lgpd-bar button{background:transparent;border:none;color:rgba(255,255,255,.55);cursor:pointer;font-size:18px;padding:0 6px;line-height:1;transition:color .2s;margin-left:4px;font-family:inherit}
+.lgpd-bar button:hover{color:#fff}
 .hero .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:18px;display:inline-block;padding:5px 14px;background:var(--gold-soft);border-radius:18px}
 .hero h1{font-family:var(--serif);font-weight:400;color:var(--violet-deep);font-size:clamp(36px,5vw,60px);line-height:1.05;letter-spacing:-.02em;margin-bottom:24px}
 .hero h1 em{color:var(--gold-deep);font-style:italic;font-weight:500}
@@ -114,12 +126,13 @@ footer .copy .hier a{color:var(--violet-light)}
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="ip-logo" viewBox="0 0 100 100">
-      <g fill="none" stroke="currentColor" stroke-linecap="round">
-        <g stroke-width="2.2" opacity="0.85">
-          <line x1="50" y1="6" x2="50" y2="28"/><line x1="22" y1="18" x2="38" y2="36"/><line x1="78" y1="18" x2="62" y2="36"/><line x1="6" y1="50" x2="32" y2="50"/><line x1="94" y1="50" x2="68" y2="50"/><line x1="16" y1="32" x2="32" y2="44"/><line x1="84" y1="32" x2="68" y2="44"/>
-        </g>
-        <circle cx="50" cy="50" r="14" stroke-width="3.4"/><line x1="50" y1="38" x2="50" y2="86" stroke-width="3.4"/><line x1="24" y1="86" x2="76" y2="86" stroke-width="3.4"/>
+    <symbol id="ip-logo" viewBox="0 0 120 120">
+      <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="60" cy="56" r="44" stroke-width="0.5" opacity="0.15"/>
+        <circle cx="60" cy="56" r="34" stroke-width="0.6" opacity="0.25"/>
+        <ellipse cx="60" cy="56" rx="15" ry="20" stroke-width="2.2"/>
+        <line x1="60" y1="24" x2="60" y2="92" stroke-width="2.2"/>
+        <path d="M 32 102 Q 60 108 88 102" stroke-width="1.6" opacity="0.5"/>
       </g>
     </symbol>
   </defs>
@@ -140,10 +153,36 @@ footer .copy .hier a{color:var(--violet-light)}
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <span class="eyebrow">Jornada · A Arquitetura do Encantamento</span>
-    <h1>Onde o resultado <em>permanece oculto,</em> o encantamento começa.</h1>
-    <p class="lede">Encantar não é gerar surpresa. É revelar o que sempre esteve ali, e que ninguém tinha como ver. Cada ensaio desta Jornada é um exercício desse encantamento aplicado à empresa contemporânea — Clock Drift, engenharia de contexto, retenção de conhecimento, a arquitetura da liderança na Era dos Participantes. Pensamento aberto, para quem quer entender antes de contratar.</p>
+  <div class="wrap-wide">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow">Jornada · A Arquitetura do Encantamento</span>
+        <h1>Onde o resultado <em>permanece oculto,</em> o encantamento começa.</h1>
+        <p class="lede">Encantar não é gerar surpresa. É revelar o que sempre esteve ali, e que ninguém tinha como ver. Cada ensaio desta Jornada é um exercício desse encantamento aplicado à empresa contemporânea — Clock Drift, engenharia de contexto, retenção de conhecimento, a arquitetura da liderança na Era dos Participantes. Pensamento aberto, para quem quer entender antes de contratar.</p>
+      </div>
+      <div class="hero-illust-side">
+        <svg viewBox="0 0 280 240" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-label="Pessoa lendo, contemplativa">
+          <path d="M 60 208 Q 140 218 220 208" stroke-width="1.4" opacity="0.55"/>
+          <ellipse cx="140" cy="64" rx="20" ry="22"/>
+          <path d="M 121 60 Q 138 44 160 56" stroke-width="1.3" opacity="0.6"/>
+          <path d="M 140 86 Q 132 110 130 145"/>
+          <path d="M 142 86 Q 158 100 172 124"/>
+          <path d="M 172 124 L 180 158"/>
+          <path d="M 130 145 Q 138 158 152 162"/>
+          <path d="M 138 158 L 158 158 L 180 162 L 180 178 L 158 172 L 138 172 Z" stroke-width="1.4"/>
+          <line x1="158" y1="158" x2="158" y2="172" opacity="0.4"/>
+          <line x1="146" y1="166" x2="155" y2="166" opacity="0.35"/>
+          <line x1="163" y1="166" x2="174" y2="166" opacity="0.35"/>
+          <path d="M 130 145 Q 110 178 102 208" stroke-width="1.5" opacity="0.55"/>
+          <path d="M 134 145 Q 154 178 165 208" stroke-width="1.5" opacity="0.55"/>
+          <g opacity="0.45">
+            <circle cx="104" cy="32" r="2.2" fill="currentColor"/>
+            <circle cx="92" cy="46" r="1.5" fill="currentColor"/>
+            <circle cx="82" cy="58" r="1" fill="currentColor"/>
+          </g>
+        </svg>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -220,9 +259,16 @@ footer .copy .hier a{color:var(--violet-light)}
   </div>
 </footer>
 
+<div id="lgpd-bar" class="lgpd-bar" role="status">
+  <span>Tratamos apenas dados estritamente necessários. <a href="https://innovapeople.com.br/privacidade">Política de Privacidade</a>.</span>
+  <button type="button" aria-label="Fechar" onclick="lgpdClose()">×</button>
+</div>
+
 <script>
 const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.1});
 document.querySelectorAll('.essay-card, .coming-item, .who h3').forEach(el=>{el.classList.add('reveal');io.observe(el)});
+function lgpdClose(){try{localStorage.setItem('ip_lgpd_consent','1');}catch(_){}document.getElementById('lgpd-bar').classList.remove('show');}
+(function(){try{if(!localStorage.getItem('ip_lgpd_consent')){setTimeout(()=>document.getElementById('lgpd-bar').classList.add('show'),900);}}catch(_){}})();
 </script>
 
 </body>
